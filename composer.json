@@ -1,0 +1,22 @@
+{
+  "name":"bennyjake/zf2-expose",
+  "type":"library",
+  "description":"A Zend Framework 2 module utilizing Expose",
+  "license":"MIT",
+  "authors":[
+    {
+      "name":"Ben Chrisman",
+      "email":"me@bennyjake.com",
+      "homepage":"http://bennyjake.com/"
+    }
+  ],
+  "require":{
+    "php":">=5.3.1",
+    "enygma/expose": "2.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "ExposeForZf2": "src/"
+    }
+  }
+}

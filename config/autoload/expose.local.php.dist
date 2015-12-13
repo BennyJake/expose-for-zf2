@@ -1,7 +1,26 @@
 <?php
 return array(
-    'expose' => array(
-        'additional_filters' => array
+    'expose-for-zf2' => array(
+
+        'handler' => 'Application/Handler/MyExposeHandler',
+
+        'expose-filters' => function (\Zend\ServiceManager\ServiceLocatorInterface $sl) {
+            $filter_collection = new \Expose\FilterCollection();
+            $filter_collection->load();
+            return $filter_collection;
+        },
+
+
+        'expose-logger' => function (\Zend\ServiceManager\ServiceLocatorInterface $sl) {
+            $logger = new \Monolog\Logger('expose');
+            return $logger;
+        },
+
+
+        'expose-queue' => NULL,
+
+
+        'additional-filters' => array
         (
             array
             (
@@ -15,9 +34,11 @@ return array(
                     )
                 ),
                 'impact' => 4
-            )
+            ),
         ),
-        'impact_actions' => array(
+
+
+        'impact-actions' => array(
             0 => array(
                 'min' => 4,
                 'max' => 8,
